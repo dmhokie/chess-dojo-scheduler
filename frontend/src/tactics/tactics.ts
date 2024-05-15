@@ -113,10 +113,10 @@ export function getSolutionScore(
 ): number {
     let score = 0;
 
-    for (let move of solution) {
+    for (const move of solution) {
         // Recursively check variations
         if (move.variations.length > 0) {
-            for (let variation of move.variations) {
+            for (const variation of move.variations) {
                 score += getSolutionScore(playAs, variation, chess, isUnscored);
             }
         }
@@ -182,12 +182,12 @@ export function scoreVariation(
     let score = 0;
     let altFound = false;
 
-    for (let move of solution) {
+    for (const move of solution) {
         // The user may not have found the mainline solution,
         // but may have found a variation, which can also have a score associated, or can be an alternate solution
         // for this move
         if (move.variations.length > 0) {
-            for (let variation of move.variations) {
+            for (const variation of move.variations) {
                 const [variationScore, alt] = scoreVariation(
                     playAs,
                     variation,
@@ -248,9 +248,9 @@ export function addExtraVariation(
     currentSolutionMove: Move | null,
     solution: Chess,
 ) {
-    for (let move of answer) {
+    for (const move of answer) {
         if (move.variations.length > 0) {
-            for (let variation of move.variations) {
+            for (const variation of move.variations) {
                 addExtraVariation(variation, currentSolutionMove, solution);
             }
         }

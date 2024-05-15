@@ -61,7 +61,7 @@ const ExamStatistics: React.FC<ExamStatisticsProps> = ({ exam }) => {
                 valueFormatter: (value) => `Score: ${value.x}, Rating: ${value.y}`,
                 color: cohortColors[answer.cohort],
             };
-            series.data?.push({ x: answer.score, y: answer.rating, id: username });
+            series.data.push({ x: answer.score, y: answer.rating, id: username });
             cohortToSeries[answer.cohort] = series;
         });
 

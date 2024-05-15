@@ -84,7 +84,7 @@ const TacticsExamPage = () => {
     const [showRetakeDialog, setShowRetakeDialog] = useState(false);
     const [showLatestAttempt, setShowLatestAttempt] = useState(false);
 
-    const hasTakenExam = Boolean(exam?.answers[user.username]);
+    const hasTakenExam = Boolean(exam.answers[user.username]);
 
     useEffect(() => {
         if (!answerRequest.isSent() && exam && hasTakenExam) {
@@ -186,7 +186,7 @@ export const InProgressTacticsExam: React.FC<InProgressTacticsExamProps> = ({
     const api = useApi();
     const pgnApi = useRef<PgnBoardApi>(null);
     const [selectedProblem, setSelectedProblem] = useState(0);
-    const answerPgns = useRef<string[]>((exam?.pgns || []).map(() => ''));
+    const answerPgns = useRef<string[]>((exam.pgns || []).map(() => ''));
     const [isTimeOver, setIsTimeOver] = useState(false);
     const [problemStatus, setProblemStatus] = useState<Record<number, ProblemStatus>>({});
 
@@ -198,9 +198,9 @@ export const InProgressTacticsExam: React.FC<InProgressTacticsExamProps> = ({
         isPlaying: !disableClock,
         size: 80,
         strokeWidth: 6,
-        duration: exam?.timeLimitSeconds || 3600,
+        duration: exam.timeLimitSeconds || 3600,
         colors: ['#66bb6a', '#29b6f6', '#ce93d8', '#ffa726', '#f44336'],
-        colorsTime: getColorsTime(exam?.timeLimitSeconds),
+        colorsTime: getColorsTime(exam.timeLimitSeconds),
         trailColor: 'rgba(0,0,0,0)',
         onComplete: onCountdownComplete,
     });

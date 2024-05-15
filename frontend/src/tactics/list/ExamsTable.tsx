@@ -148,7 +148,7 @@ const ExamsTable = ({ exams }: { exams: Exam[] }) => {
                     if (
                         !hasAnswered &&
                         i >= 1 &&
-                        !Boolean(exams[i - 1].answers[user?.username || ''])
+                        !exams[i - 1].answers[user?.username || '']
                     ) {
                         return (
                             <Tooltip title='This exam is locked until you complete the previous exam'>
@@ -255,7 +255,7 @@ const ExamsTable = ({ exams }: { exams: Exam[] }) => {
         }
 
         const i = exams.findIndex((e) => e.id === params.row.id);
-        if (i >= 1 && !Boolean(exams[i - 1].answers[user?.username || ''])) {
+        if (i >= 1 && !exams[i - 1].answers[user?.username || '']) {
             setSnackbarOpen(true);
         } else if (i >= 1 && isFreeTier) {
             setUpsellOpen(true);

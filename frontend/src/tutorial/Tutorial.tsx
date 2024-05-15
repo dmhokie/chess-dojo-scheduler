@@ -21,7 +21,7 @@ const Tutorial: React.FC<TutorialProps> = ({ name, steps, zIndex }) => {
 
     useEffect(() => {
         if (
-            (!user.tutorials || !user.tutorials[name]) &&
+            (!user.tutorials?.[name]) &&
             tutorialState.activeTutorial !== name
         ) {
             console.log('Starting tutorial: ', name);

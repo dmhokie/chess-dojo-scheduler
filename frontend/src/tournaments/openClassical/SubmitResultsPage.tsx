@@ -128,7 +128,7 @@ const SubmitResultsPage = () => {
                 console.log('submitResultsForOpenClassical: ', resp);
                 request.onSuccess();
                 const round =
-                    resp.data.sections?.[`${region}_${section}`]?.rounds?.length ||
+                    resp.data.sections[`${region}_${section}`]?.rounds.length ||
                     'standings';
                 navigate(
                     `/tournaments/open-classical?region=${region}&ratingRange=${section}&view=${round}`,

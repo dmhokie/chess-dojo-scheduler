@@ -14,7 +14,7 @@ const TacticsInstructionsPage = () => {
         navigate('/tactics/exam', { state: locationState });
     };
 
-    if (!locationState || !locationState.exam) {
+    if (!locationState?.exam) {
         return <Navigate to='/tactics/' />;
     }
 
