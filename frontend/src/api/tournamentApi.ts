@@ -83,7 +83,7 @@ export interface TournamentApiContextType {
     adminGetRegistrations: (
         region: string,
         section: string,
-    ) => Promise<AxiosResponse>;
+    ) => Promise<AxiosResponse<Blob>>;
 
     /**
      * Bans the given player from the open classical.

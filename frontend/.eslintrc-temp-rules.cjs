@@ -49,7 +49,7 @@ module.exports = {
         ],
         '@typescript-eslint/triple-slash-reference': 'warn',
         '@typescript-eslint/unbound-method': 'warn',
-        '@typescript-eslint/use-unknown-in-catch-callback-variable': 'warn',
+        '@typescript-eslint/use-unknown-in-catch-callback-variable': 'off',
         'cypress/unsafe-to-chain-command': 'warn',
         'no-async-promise-executor': 'warn',
         'no-case-declarations': 'warn',
