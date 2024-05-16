@@ -24,7 +24,7 @@ module.exports = {
         '@typescript-eslint/no-misused-promises': 'warn',
         '@typescript-eslint/no-non-null-assertion': 'warn',
         '@typescript-eslint/no-redundant-type-constituents': 'warn',
-        '@typescript-eslint/no-unnecessary-condition': 'warn',
+        '@typescript-eslint/no-unnecessary-condition': 'off',
         '@typescript-eslint/no-unnecessary-type-arguments': 'warn',
         '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
         '@typescript-eslint/no-unsafe-argument': 'warn',

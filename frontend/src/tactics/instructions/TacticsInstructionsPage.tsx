@@ -2,12 +2,16 @@ import { Button, Container, Stack, Typography } from '@mui/material';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { RequestStatus, useRequest } from '../../api/Request';
 import { Exam, ExamAnswer, ExamType } from '../../database/exam';
-import { CompletedTacticsExam, InProgressTacticsExam } from '../TacticsExamPage';
+import {
+    CompletedTacticsExam,
+    ExamLocationState,
+    InProgressTacticsExam,
+} from '../TacticsExamPage';
 import Instructions from './Instructions';
 
 const TacticsInstructionsPage = () => {
     const navigate = useNavigate();
-    const locationState = useLocation().state;
+    const locationState = useLocation().state as ExamLocationState;
     const request = useRequest<ExamAnswer>();
 
     const onStart = () => {

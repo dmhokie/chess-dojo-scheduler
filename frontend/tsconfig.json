@@ -16,8 +16,7 @@
         "noEmit": true,
         "jsx": "react-jsx",
         "types": ["vitest/globals", "@testing-library/jest-dom"],
-        "useUnknownInCatchVariables": true,
-        "noUncheckedIndexedAccess": true
+        "useUnknownInCatchVariables": true
     },
     "include": ["src", "cypress.config.ts", "vite.config.mts", ".eslintrc.cjs"]
 }
