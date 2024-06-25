@@ -1,7 +1,11 @@
 import { StaticImageData } from 'next/image';
 import dojoDigestVol8Image from './dojo-digest/vol-8/dojo_3-0.webp';
 import tacticsTestImage from './tactics-test/image.png';
+<<<<<<< Updated upstream
 import talkstop2025 from './dojo-talks-Who Will Be Top 10 in 2025/Who Will Be Top 10 in 2025.webp'
+=======
+import talksadviceforyoung from './dojo-talks/Advice-for-Young-Chess-Professionals/image.jpg'
+>>>>>>> Stashed changes
 
 export interface BlogItem {
     title: string;
@@ -15,6 +19,16 @@ export interface BlogItem {
 }
 
 const items: BlogItem[] = [
+    {
+        title: 'Advice for Young Chess Professionals ft. GM Sam Shankland | Dojo Talks',
+        subtitle: 'Jesse, Kostya, and David • June 25, 2024',
+        body: `GM Sam Shankland, GM Jesse Kraai, IM David Pruess, and IM Kostya Kavutskiy talk about what it takes to have a career in chess, whether as a tournament player or chess content creator, in today's episode of Dojo Talks, the ChessDojo podcast.`,
+        href: '/blog/dojo-talks/Advice-for-Young-Chess-Professionals',
+        image: {
+            src: talksadviceforyoung,
+            alt: '',
+        },
+    },
     {
         title: 'Who Will Be Top 10 in 2025? | Dojo Talks',
         subtitle: 'Jesse, Kostya, and David • June 5, 2024',
