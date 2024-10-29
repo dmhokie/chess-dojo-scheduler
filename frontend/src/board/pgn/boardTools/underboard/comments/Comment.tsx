@@ -1,3 +1,13 @@
+import { useApi } from '@/api/Api';
+import { UpdateCommentRequest } from '@/api/gameApi';
+import { RequestSnackbar, useRequest } from '@/api/Request';
+import { useAuth } from '@/auth/Auth';
+import { BlockBoardKeyboardShortcuts } from '@/board/pgn/PgnBoard';
+import { toDojoDateString, toDojoTimeString } from '@/calendar/displayDate';
+import useGame from '@/context/useGame';
+import { PositionComment } from '@/database/game';
+import Avatar from '@/profile/Avatar';
+import CohortIcon from '@/scoreboard/CohortIcon';
 import { Edit, ExpandMore } from '@mui/icons-material';
 import { LoadingButton } from '@mui/lab';
 import {
@@ -17,17 +27,6 @@ import {
     Typography,
 } from '@mui/material';
 import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { useApi } from '../../../../../api/Api';
-import { RequestSnackbar, useRequest } from '../../../../../api/Request';
-import { UpdateCommentRequest } from '../../../../../api/gameApi';
-import { useAuth } from '../../../../../auth/Auth';
-import { toDojoDateString, toDojoTimeString } from '../../../../../calendar/displayDate';
-import { PositionComment } from '../../../../../database/game';
-import { useGame } from '../../../../../games/view/GamePage';
-import Avatar from '../../../../../profile/Avatar';
-import CohortIcon from '../../../../../scoreboard/CohortIcon';
-import { BlockBoardKeyboardShortcuts } from '../../../PgnBoard';
 import Replies from './Replies';
 import ReplyEditor from './ReplyEditor';
 
@@ -348,8 +347,7 @@ const CommentInfo: React.FC<CommentProps> = ({ comment }) => {
             />
             <Stack direction='row' spacing={1} alignItems='center'>
                 <Link
-                    component={RouterLink}
-                    to={`/profile/${comment.owner.username}`}
+                    href={`/profile/${comment.owner.username}`}
                     sx={{ textDecoration: 'none' }}
                 >
                     <Typography variant='subtitle1' sx={{ color: 'text.primary' }}>

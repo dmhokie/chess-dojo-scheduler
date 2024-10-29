@@ -1,3 +1,5 @@
+import useGame from '@/context/useGame';
+import LoadingPage from '@/loading/LoadingPage';
 import { Chess, Observer } from '@jackstenglein/chess';
 import { Box } from '@mui/material';
 import { Color } from 'chessground/types';
@@ -12,8 +14,6 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import { useGame } from '../../games/view/GamePage';
-import LoadingPage from '../../loading/LoadingPage';
 import { BoardApi } from '../Board';
 import ResizableContainer from './ResizableContainer';
 import { UnderboardTab } from './boardTools/underboard/Underboard';
@@ -27,6 +27,7 @@ interface ChessConfig {
     allowMoveDeletion?: boolean;
     disableTakebacks?: Color | 'both';
     disableNullMoves?: boolean;
+    disableEngine?: boolean;
 }
 
 interface ChessContextType {
@@ -79,6 +80,7 @@ const PgnBoard = forwardRef<PgnBoardApi, PgnBoardProps>(
             allowMoveDeletion,
             disableTakebacks,
             disableNullMoves: disableNullMovesProp,
+            disableEngine,
             slots,
         },
         ref,
@@ -106,6 +108,7 @@ const PgnBoard = forwardRef<PgnBoardApi, PgnBoardProps>(
                     initKey,
                     allowMoveDeletion,
                     disableTakebacks,
+                    disableEngine,
                 },
                 toggleOrientation,
                 keydownMap,
@@ -119,6 +122,7 @@ const PgnBoard = forwardRef<PgnBoardApi, PgnBoardProps>(
                 keydownMap,
                 slots,
                 disableTakebacks,
+                disableEngine,
                 initKey,
             ],
         );

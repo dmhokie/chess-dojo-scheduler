@@ -1,6 +1,5 @@
 import { isValidDate, stripTagValue } from '@/api/gameApi';
-import { MastersCohort } from '@/components/games/list/GameListItem';
-import { Game } from '@/database/game';
+import { Game, MastersCohort } from '@/database/game';
 import Avatar from '@/profile/Avatar';
 import CohortIcon from '@/scoreboard/CohortIcon';
 import { EventType, PgnDate, PgnTime, TimeControl } from '@jackstenglein/chess';
@@ -15,7 +14,6 @@ import {
     GridRenderEditCellParams,
 } from '@mui/x-data-grid-pro';
 import React, { useEffect, useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import { useChess } from '../../../PgnBoard';
 import { EditDateCell } from './DateEditor';
 import { TimeControlGridEditor } from './TimeControlEditor';
@@ -53,10 +51,7 @@ const columns: GridColDef<TagRow>[] = [
                             displayName={params.row.value.displayName}
                             size={28}
                         />
-                        <Link
-                            component={RouterLink}
-                            to={`/profile/${params.row.value.username}`}
-                        >
+                        <Link href={`/profile/${params.row.value.username}`}>
                             <Typography variant='body2'>
                                 {params.row.value.displayName}
                             </Typography>
@@ -69,8 +64,7 @@ const columns: GridColDef<TagRow>[] = [
             if (params.row.name === 'Cohort' && typeof params.row.value === 'string') {
                 return (
                     <Link
-                        component={RouterLink}
-                        to={`/games/?type=cohort&cohort=${encodeURIComponent(
+                        href={`/games/?type=cohort&cohort=${encodeURIComponent(
                             params.row.value,
                         )}`}
                     >

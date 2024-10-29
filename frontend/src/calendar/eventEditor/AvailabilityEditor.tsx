@@ -1,3 +1,4 @@
+import MultipleSelectChip from '@/components/ui/MultipleSelectChip';
 import { ProcessedEvent } from '@aldabil/react-scheduler/types';
 import { Stack, Typography } from '@mui/material';
 import {
@@ -8,7 +9,6 @@ import {
     getDisplayString,
 } from '../../database/event';
 import { User, dojoCohorts } from '../../database/user';
-import MultipleSelectChip from '../../newsfeed/list/MultipleSelectChip';
 import Icon from '../../style/Icon';
 import { getTimeZonedDate } from '../displayDate';
 import CohortsFormSection from './form/CohortsFormSection';
@@ -158,6 +158,8 @@ const AvailabilityEditor: React.FC<AvailabilityEditorProps> = ({ editor }) => {
         setAllCohorts,
         cohorts,
         setCohort,
+        rruleOptions,
+        setRRuleOptions,
         errors,
     } = editor;
 
@@ -214,6 +216,8 @@ const AvailabilityEditor: React.FC<AvailabilityEditorProps> = ({ editor }) => {
                 setEnd={setEnd}
                 endError={errors.end}
                 minEnd={minEnd}
+                rruleOptions={rruleOptions}
+                setRRuleOptions={setRRuleOptions}
             />
 
             <LocationFormSection
